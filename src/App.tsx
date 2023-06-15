@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import { ServerData } from './weatherResponseType';
 import { getWeatherRequest } from './api/weatherRequest.api';
+import { MainWeatherView } from './modules/mainWeaterView/components/mainWeatherView.modules';
 
 function App() {
   const [weatherData, setWeatherData] = useState<ServerData | undefined>();
@@ -12,9 +13,7 @@ function App() {
 
   return (
     <>
-      <div>APP</div>
-      <h1>{weatherData?.location.name}</h1>
-      <h2>{weatherData?.current.temp_c}C</h2>
+      <MainWeatherView />
     </>
   );
 }
