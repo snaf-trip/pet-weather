@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { ServerData, ServerResponse } from "../weatherResponseType";
 import axios from "axios";
 

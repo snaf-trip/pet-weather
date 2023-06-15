@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { useEffect, useState } from 'react';
-import { ServerData } from '../../../weatherResponseType';
+import { useEffect } from 'react';
 import WeatherDataStore from '../../../stores/weatherDataStore.stores';
 import './mainWeatherView.modules.scss';
 import { SearchLocation } from '../../../components/searchLocation/searchLocation.components';
@@ -9,8 +8,6 @@ import { getWeatherRequest } from '../../../api/weatherRequest.api';
 import { observer } from 'mobx-react-lite';
 
 export const MainWeatherView: FC = observer(() => {
-  // const [weatherData, setWeatherData] = useState<ServerData | undefined>();
-
   const { data, getData } = WeatherDataStore;
 
   useEffect(() => {
