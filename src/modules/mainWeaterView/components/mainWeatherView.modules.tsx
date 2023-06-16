@@ -11,7 +11,7 @@ export const MainWeatherView: FC = observer(() => {
   const { data, getData } = WeatherDataStore;
 
   useEffect(() => {
-    if (data === undefined) getWeatherRequest(getData);
+    if (data === undefined) getWeatherRequest('Екатеринбург', getData);
   }, []);
 
   console.log(data);
