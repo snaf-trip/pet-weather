@@ -1,4 +1,4 @@
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import './searchLocation.components.scss';
 import { LocationIcon } from './icons/locationIcon';
 import { SearchIcon } from './icons/searchIcon';
