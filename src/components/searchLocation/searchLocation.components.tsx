@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import './searchLocation.components.scss';
 import { LocationIcon } from './icons/locationIcon';
 import { SearchIcon } from './icons/searchIcon';
@@ -13,13 +13,22 @@ export const SearchLocation: FC = () => {
     getWeatherRequest(location!, getData);
   };
 
+  const onKeyDown = (e: { key: string }) => {
+    if (e.key === 'Enter') {
+      updateLocation();
+    }
+  };
+
   return (
     <div className="searchLocation__container">
       <LocationIcon />
       <input
         type="text"
         className="searchLocation__input"
-        onChange={(e) => setLocation(e.target.value)}
+        onChange={(e) => {
+          setLocation(e.target.value);
+        }}
+        onKeyDown={onKeyDown}
       />
       <SearchIcon
         className="searchLocation__searchIcon"
