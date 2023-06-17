@@ -8,7 +8,7 @@ class WeatherDataStore {
     makeAutoObservable(this);
   }
 
-  getData = (data: ServerData) => {
+  getData = (data: ServerData | undefined) => {
     this.data = data;
   };
 }

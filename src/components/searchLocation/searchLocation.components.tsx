@@ -10,6 +10,7 @@ export const SearchLocation: FC = () => {
   const { getData } = weatherDataStoreStore;
 
   const updateLocation = () => {
+    getData(undefined);
     getWeatherRequest(location!, getData);
   };
 
