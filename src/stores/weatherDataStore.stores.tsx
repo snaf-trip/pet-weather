@@ -5,10 +5,6 @@ class WeatherDataStore {
   data: ServerData | undefined = undefined;
 
   constructor() {
-    // makeObservable(this, {
-    //   data: observable,
-    //   getData: action,
-    // });
     makeAutoObservable(this);
   }
 
