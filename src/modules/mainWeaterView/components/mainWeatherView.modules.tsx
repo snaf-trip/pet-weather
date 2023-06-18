@@ -6,7 +6,7 @@ import { SearchLocation } from '../../../components/searchLocation/searchLocatio
 import { WeatherContent } from '../../../components/weatherContnent/weatherContent.components';
 import { getWeatherRequest } from '../../../api/weatherRequest.api';
 import { observer } from 'mobx-react-lite';
-import { ipGetter } from '../../../api/userLocationRequest.api';
+import { ipGetter } from '../../../api/ipUserRequest.api';
 
 export const MainWeatherView: FC = observer(() => {
   const { data, getData } = WeatherDataStore;
