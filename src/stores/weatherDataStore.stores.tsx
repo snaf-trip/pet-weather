@@ -1,14 +1,17 @@
 import { makeAutoObservable } from 'mobx';
-import { ServerData } from '../types/weatherResponseType.types';
+import {
+  ServerData,
+  WeatherServerResponseError,
+} from '../types/weatherResponseType.types';
 
 class WeatherDataStore {
-  data: ServerData | undefined = undefined;
+  data: ServerData | string | undefined = undefined;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  getData = (data: ServerData | undefined) => {
+  getData = (data: ServerData | string | undefined) => {
     this.data = data;
   };
 }

@@ -43,3 +43,14 @@ export interface ServerData {
     'gust_kph': number
   }
 }
+
+export interface WeatherServerResponseError {
+  response: {
+    data: {
+      error: {
+        code: number,
+        message: string
+      }
+    }
+  }
+}
