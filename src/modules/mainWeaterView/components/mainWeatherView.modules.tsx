@@ -6,15 +6,19 @@ import { SearchLocation } from '../../../components/searchLocation/searchLocatio
 import { WeatherContent } from '../../../components/weatherContnent/weatherContent.components';
 import { getWeatherRequest } from '../../../api/weatherRequest.api';
 import { observer } from 'mobx-react-lite';
+import { ipGetter } from '../../../api/userLocationRequest.api';
 
 export const MainWeatherView: FC = observer(() => {
   const { data, getData } = WeatherDataStore;
 
   useEffect(() => {
-    if (data === undefined) getWeatherRequest('Екатеринбург', getData);
+    if (!localStorage.getItem('userLocation')) {
+      ipGetter(getData);
+    } else {
+      if (data === undefined)
+        getWeatherRequest(localStorage.getItem('userLocation')!, getData);
+    }
   }, []);
-
-  console.log(data);
 
   return (
     <div className="mainWeatherView__container">

@@ -1,12 +1,12 @@
-import { ServerData, ServerResponse } from "../weatherResponseType";
+import { ServerData, ServerResponse } from "../types/weatherResponseType.types";
 import axios from "axios";
 
 export const getWeatherRequest = (
-  sity: string,
+  city: string,
   getData: (data: ServerData) => void
 ) => {
   axios
-    .get(`https://api.weatherapi.com/v1/current.json?key=41dab428dc624be0b63184944231406&q=${sity}&aqi=no`)
+    .get(`https://api.weatherapi.com/v1/current.json?key=41dab428dc624be0b63184944231406&q=${city}&aqi=no`)
     .then((response: ServerResponse) => {
       getData(response.data);
     })

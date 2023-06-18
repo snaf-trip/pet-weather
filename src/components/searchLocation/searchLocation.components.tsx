@@ -26,6 +26,7 @@ export const SearchLocation: FC = () => {
       <input
         type="text"
         className="searchLocation__input"
+        defaultValue={localStorage.getItem('userLocation')!}
         onChange={(e) => {
           setLocation(e.target.value);
         }}

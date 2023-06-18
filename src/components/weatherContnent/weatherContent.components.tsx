@@ -1,5 +1,5 @@
 import './weatherContent.components.scss';
-import { ServerData } from '../../weatherResponseType';
+import { ServerData } from '../../types/weatherResponseType.types';
 import { Loader } from '../loader/loader.components';
 
 interface Props {
@@ -21,7 +21,7 @@ export const WeatherContent = ({ data }: Props) => {
             className="weatherContent__weatherIcon"
           />
           <div className="weatherContent__temp">{data?.current.temp_c}°</div>
-          <div className="weatherContent__otherInfo">Other content</div>
+          <div className="weatherContent__otherInfo">Other content soon...</div>
         </>
       )}
     </div>

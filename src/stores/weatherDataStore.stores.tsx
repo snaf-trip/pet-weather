@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { ServerData } from '../weatherResponseType';
+import { ServerData } from '../types/weatherResponseType.types';
 
 class WeatherDataStore {
   data: ServerData | undefined = undefined;
