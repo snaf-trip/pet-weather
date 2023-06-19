@@ -7,6 +7,7 @@ import { WeatherContent } from '../../../components/weatherContnent/weatherConte
 import { getWeatherRequest } from '../../../api/weatherRequest.api';
 import { observer } from 'mobx-react-lite';
 import { ipGetter } from '../../../api/ipUserRequest.api';
+import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 
 export const MainWeatherView: FC = observer(() => {
   const { data, getData } = WeatherDataStore;
@@ -25,6 +26,7 @@ export const MainWeatherView: FC = observer(() => {
       <div className="mainWeatherView__content">
         <SearchLocation />
         <WeatherContent data={data} />
+        <FooterSettings />
       </div>
     </div>
   );
