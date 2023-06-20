@@ -1,12 +1,16 @@
 import './weatherContent.components.scss';
 import { ServerData } from '../../types/weatherResponseType.types';
 import { Loader } from '../../ui/loader/loader.components';
+import TempUnitStore from '../../stores/tempUnitStore.stores';
+import { observer } from 'mobx-react-lite';
 
 interface Props {
   data: ServerData | string | undefined;
 }
 
-export const WeatherContent = ({ data }: Props) => {
+export const WeatherContent = observer(({ data }: Props) => {
+  const { tempUnit } = TempUnitStore;
+
   return (
     <div className="weatherContent__container">
       {data === undefined ? (
@@ -25,7 +29,8 @@ export const WeatherContent = ({ data }: Props) => {
                 className="weatherContent__weatherIcon"
               />
               <div className="weatherContent__temp">
-                {data?.current.temp_c}°
+                {tempUnit === 'C' ? data?.current.temp_c : data?.current.temp_f}
+                °
               </div>
               <div className="weatherContent__otherInfo">
                 Other content soon...
@@ -36,4 +41,4 @@ export const WeatherContent = ({ data }: Props) => {
       )}
     </div>
   );
-};
+});

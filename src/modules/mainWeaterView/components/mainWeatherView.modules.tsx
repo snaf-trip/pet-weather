@@ -8,9 +8,11 @@ import { getWeatherRequest } from '../../../api/weatherRequest.api';
 import { observer } from 'mobx-react-lite';
 import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
+import TempUnitStore from '../../../stores/tempUnitStore.stores';
 
 export const MainWeatherView: FC = observer(() => {
   const { data, getData } = WeatherDataStore;
+  const { initTempUnit } = TempUnitStore;
 
   useEffect(() => {
     if (!localStorage.getItem('userLocation')) {
@@ -18,6 +20,15 @@ export const MainWeatherView: FC = observer(() => {
     } else {
       if (data === undefined)
         getWeatherRequest(localStorage.getItem('userLocation')!, getData);
+    }
+
+    //inintial TempUnit
+    let unit = localStorage.getItem('tempUnit');
+    if (unit === null) {
+      localStorage.setItem('tempUnit', 'C');
+      initTempUnit('C');
+    } else {
+      initTempUnit(unit);
     }
   }, []);
 
