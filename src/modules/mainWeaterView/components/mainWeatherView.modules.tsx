@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { useEffect } from 'react';
 import WeatherDataStore from '../../../stores/weatherDataStore.stores';
 import './mainWeatherView.modules.scss';
@@ -10,9 +9,10 @@ import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
 
-export const MainWeatherView: FC = observer(() => {
+export const MainWeatherView = observer(() => {
   const { data, getData } = WeatherDataStore;
   const { initTempUnit } = TempUnitStore;
+  const date = new Date();
 
   useEffect(() => {
     if (!localStorage.getItem('userLocation')) {
@@ -32,8 +32,17 @@ export const MainWeatherView: FC = observer(() => {
     }
   }, []);
 
+  console.log(date.getHours());
+
   return (
-    <div className="mainWeatherView__container">
+    <div
+      className="mainWeatherView__container"
+      style={
+        date.getHours() > 6
+          ? { backgroundColor: '#158fff' }
+          : { backgroundColor: '#ff9415' }
+      }
+    >
       <div className="mainWeatherView__content">
         <SearchLocation />
         <WeatherContent data={data} />
