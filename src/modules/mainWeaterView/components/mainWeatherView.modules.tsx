@@ -8,11 +8,11 @@ import { observer } from 'mobx-react-lite';
 import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
+import { timeStyler } from '../../../utils/timeStyler.utils';
 
 export const MainWeatherView = observer(() => {
   const { data, getData } = WeatherDataStore;
   const { initTempUnit } = TempUnitStore;
-  const date = new Date();
 
   useEffect(() => {
     if (!localStorage.getItem('userLocation')) {
@@ -32,17 +32,8 @@ export const MainWeatherView = observer(() => {
     }
   }, []);
 
-  console.log(date.getHours());
-
   return (
-    <div
-      className="mainWeatherView__container"
-      style={
-        date.getHours() > 6
-          ? { backgroundColor: '#158fff' }
-          : { backgroundColor: '#ff9415' }
-      }
-    >
+    <div className="mainWeatherView__container" style={timeStyler()}>
       <div className="mainWeatherView__content">
         <SearchLocation />
         <WeatherContent data={data} />
