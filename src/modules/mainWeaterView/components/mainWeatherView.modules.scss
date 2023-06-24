@@ -5,6 +5,9 @@
   top: 0;
   left: 0;
   overflow: auto;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/db/Yekaterinburg-overview-april-2015-russia-0001.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .mainWeatherView__content {
     display: flex;
@@ -21,5 +24,11 @@
     left: 0;
     margin: auto;
     padding: 25px;
+
+    background: rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.2px);
+    -webkit-backdrop-filter: blur(6.2px);
   }
 }

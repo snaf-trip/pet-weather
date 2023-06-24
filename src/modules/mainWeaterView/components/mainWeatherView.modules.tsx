@@ -33,7 +33,8 @@ export const MainWeatherView = observer(() => {
   }, []);
 
   return (
-    <div className="mainWeatherView__container" style={timeStyler()}>
+    // <div className="mainWeatherView__container" style={timeStyler()}>
+    <div className="mainWeatherView__container">
       <div className="mainWeatherView__content">
         <SearchLocation />
         <WeatherContent data={data} />
