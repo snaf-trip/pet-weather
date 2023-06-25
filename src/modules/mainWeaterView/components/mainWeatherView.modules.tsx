@@ -8,7 +8,7 @@ import { observer } from 'mobx-react-lite';
 import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
-import { timeStyler } from '../../../utils/timeStyler.utils';
+// import { timeStyler } from '../../../utils/timeStyler.utils';
 
 export const MainWeatherView = observer(() => {
   const { data, getData } = WeatherDataStore;
