@@ -1,15 +1,7 @@
 import axios from "axios";
 
 export const backgroundImgRequest = () => {
-  axios.get('https://wikimedia-image-search.p.rapidapi.com/wiki/', {
-    params: {
-      query: 'Екатеринбург',
-      results: '1',
-      page: '1'
-    },
-    headers: {
-      'X-RapidAPI-Key': '800cc2adabmsh01337b748222354p14e843jsnfdcc3b862d81',
-      'X-RapidAPI-Host': 'wikimedia-image-search.p.rapidapi.com'
-    }
-  }).then((response: any) => console.log(response)).catch((error: any) => console.log(error))
+  axios.get('https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&&origin=*&titles=Dubai')
+    .then((response: any) => console.log(response))
+    .catch((error: any) => console.log(error))
 };
