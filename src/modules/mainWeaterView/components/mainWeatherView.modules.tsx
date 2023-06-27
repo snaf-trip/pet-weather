@@ -8,12 +8,14 @@ import { observer } from 'mobx-react-lite';
 import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
-import { backgroundImgRequest } from '../../../api/backgroundImgRequest.api';
+import BackgroundImgStore from '../../../stores/backgroundImgStore.stores';
+// import { backgroundImgRequest } from '../../../api/backgroundImgRequest.api';
 // import { timeStyler } from '../../../utils/timeStyler.utils';
 
 export const MainWeatherView = observer(() => {
   const { data, getData } = WeatherDataStore;
   const { initTempUnit } = TempUnitStore;
+  const { imgUrl } = BackgroundImgStore;
 
   useEffect(() => {
     if (!localStorage.getItem('userLocation')) {
@@ -31,13 +33,14 @@ export const MainWeatherView = observer(() => {
     } else {
       initTempUnit(unit);
     }
-
-    backgroundImgRequest();
   }, []);
 
   return (
     // <div className="mainWeatherView__container" style={timeStyler()}>
-    <div className="mainWeatherView__container">
+    <div
+      className="mainWeatherView__container"
+      style={{ backgroundImage: `url(${imgUrl})` }}
+    >
       <div className="mainWeatherView__content">
         <SearchLocation />
         <WeatherContent data={data} />
