@@ -9,6 +9,7 @@ import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
 import BackgroundImgStore from '../../../stores/backgroundImgStore.stores';
+import { searchHintsRequest } from '../../../api/searchHintsRequest.api';
 // import { backgroundImgRequest } from '../../../api/backgroundImgRequest.api';
 // import { timeStyler } from '../../../utils/timeStyler.utils';
 
@@ -33,6 +34,8 @@ export const MainWeatherView = observer(() => {
     } else {
       initTempUnit(unit);
     }
+
+    searchHintsRequest();
   }, []);
 
   return (
