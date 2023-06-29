@@ -18,7 +18,7 @@ export const WeatherContent = observer(({ data }: Props) => {
       ) : (
         <>
           {typeof data === 'string' ? (
-            <h1>{data}</h1>
+            <h1 className='weatherContent__badResponse'>{data}</h1>
           ) : (
             <>
               <img

@@ -5,6 +5,10 @@
   justify-content: space-around;
   height: 100%;
 
+  .weatherContent__badResponse {
+    font-size: 24px;
+  }
+
   .weatherContent__weatherIcon {
     filter: invert(0.9);
     // нужно будет svg конвертнуть в tsx
