@@ -9,8 +9,6 @@ import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
 import BackgroundImgStore from '../../../stores/backgroundImgStore.stores';
-// import { backgroundImgRequest } from '../../../api/backgroundImgRequest.api';
-// import { timeStyler } from '../../../utils/timeStyler.utils';
 
 export const MainWeatherView = observer(() => {
   const { data, getData } = WeatherDataStore;
@@ -36,7 +34,6 @@ export const MainWeatherView = observer(() => {
   }, []);
 
   return (
-    // <div className="mainWeatherView__container" style={timeStyler()}>
     <div
       className="mainWeatherView__container"
       style={{ backgroundImage: `url(${imgUrl})` }}
