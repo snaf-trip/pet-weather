@@ -10,9 +10,9 @@ export const FooterSettings = observer(() => {
       <a className="footerSettings__tempView" onClick={() => changeTempUnit()}>
         {tempUnit}
       </a>
-      <a className="footerSettings__settingsButton">
+      {/* <a className="footerSettings__settingsButton">
         <SettingsIcon />
-      </a>
+      </a> */}
     </div>
   );
 });
