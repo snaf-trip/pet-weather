@@ -19,8 +19,12 @@ export const getUserLocationRequest = (
       }
     })
     .then((response: locationServerResponse) => {
-      getWeatherRequest(response.data.location.data.city, getData)
-      localStorage.setItem('userLocation', response.data.location.data.city);
+      getWeatherRequest(response.data.location.data.city, getData);
+      let userLocation = {
+        city: response.data.location.data.city,
+        country: response.data.location.data.country
+      };
+      localStorage.setItem('userLocation', JSON.stringify(userLocation));
     })
     .catch((error) => {
       console.log(error);
