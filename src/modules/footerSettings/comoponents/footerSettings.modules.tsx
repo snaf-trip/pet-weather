@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { SettingsIcon } from '../icons/settingsIcon';
+// import { SettingsIcon } from '../icons/settingsIcon';
 import './footerSettings.modules.scss';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
 
