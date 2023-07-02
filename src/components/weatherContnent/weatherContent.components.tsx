@@ -18,7 +18,7 @@ export const WeatherContent = observer(({ data }: Props) => {
       ) : (
         <>
           {typeof data === 'string' ? (
-            <h1 className='weatherContent__badResponse'>{data}</h1>
+            <h1 className="weatherContent__badResponse">{data}</h1>
           ) : (
             <>
               <img
@@ -28,9 +28,16 @@ export const WeatherContent = observer(({ data }: Props) => {
                 height={250}
                 className="weatherContent__weatherIcon"
               />
-              <div className="weatherContent__temp">
-                {tempUnit === 'C' ? data?.current.temp_c : data?.current.temp_f}
-                °
+              <div className="weatherContent__mainData">
+                <h1 className="weatherContent__temp">
+                  {tempUnit === 'C'
+                    ? data?.current.temp_c
+                    : data?.current.temp_f}
+                  <span className="weatherContent__degreeIcon">°</span>
+                </h1>
+                <span className="weatherContent__description">
+                  {data.current.condition.text}
+                </span>
               </div>
               <div className="weatherContent__otherInfo">
                 Other content soon...
