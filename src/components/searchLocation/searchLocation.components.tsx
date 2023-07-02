@@ -1,11 +1,16 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import './searchLocation.components.scss';
 import { LocationIcon } from './icons/locationIcon';
 import { SearchIcon } from './icons/searchIcon';
 import { getWeatherRequest } from '../../api/weatherRequest.api';
 import weatherDataStoreStore from '../../stores/weatherDataStore.stores';
+import { UserLoactionStorage } from '../../types/userLocationStorageType.types';
 
-export const SearchLocation: FC = () => {
+interface Props {
+  userLocation: UserLoactionStorage | null;
+}
+
+export const SearchLocation = ({ userLocation }: Props) => {
   const [location, setLocation] = useState<string | undefined>();
   const { getData } = weatherDataStoreStore;
 
@@ -26,7 +31,8 @@ export const SearchLocation: FC = () => {
       <input
         type="text"
         className="searchLocation__input"
-        defaultValue={localStorage.getItem('userLocation')!}
+        placeholder={userLocation === null ? 'Поиск' : ''}
+        defaultValue={userLocation !== null ? userLocation.city : ''}
         onChange={(e) => {
           setLocation(e.target.value);
         }}

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import WeatherDataStore from '../../../stores/weatherDataStore.stores';
 import './mainWeatherView.modules.scss';
 import { SearchLocation } from '../../../components/searchLocation/searchLocation.components';
@@ -9,18 +9,23 @@ import { ipGetter } from '../../../api/ipUserRequest.api';
 import { FooterSettings } from '../../footerSettings/comoponents/footerSettings.modules';
 import TempUnitStore from '../../../stores/tempUnitStore.stores';
 import BackgroundImgStore from '../../../stores/backgroundImgStore.stores';
+import { UserLoactionStorage } from '../../../types/userLocationStorageType.types';
 
 export const MainWeatherView = observer(() => {
   const { data, getData } = WeatherDataStore;
   const { initTempUnit } = TempUnitStore;
   const { imgUrl } = BackgroundImgStore;
+  const [userLocation, setUserLocation] = useState<UserLoactionStorage | null>(
+    JSON.parse(localStorage.getItem('userLocation')!)
+  );
 
   useEffect(() => {
-    if (!localStorage.getItem('userLocation')) {
-      ipGetter(getData);
-    } else {
-      if (data === undefined)
-        getWeatherRequest(localStorage.getItem('userLocation')!, getData);
+    if (userLocation === null) {
+      //first get user location
+      ipGetter(getData, setUserLocation);
+    } else if (data === undefined) {
+      //first get weather data
+      getWeatherRequest(userLocation.city, getData);
     }
 
     //inintial TempUnit
@@ -39,7 +44,7 @@ export const MainWeatherView = observer(() => {
       style={{ backgroundImage: `url(${imgUrl})` }}
     >
       <div className="mainWeatherView__content">
-        <SearchLocation />
+        <SearchLocation userLocation={userLocation} />
         <WeatherContent data={data} />
         <FooterSettings />
       </div>
