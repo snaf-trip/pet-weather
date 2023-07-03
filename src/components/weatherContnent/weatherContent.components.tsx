@@ -39,8 +39,30 @@ export const WeatherContent = observer(({ data }: Props) => {
                   {data.current.condition.text}
                 </span>
               </div>
-              <div className="weatherContent__otherInfo">
-                Other content soon...
+              <div className="weatherContent__details">
+                <div className="weatherContent__detail">
+                  <img src="src/images/temperatureFeelsLike.svg" width="15" />
+                  <div className="weatherContent__detailText">
+                    <span className="weatherContent__detailValue">
+                      {tempUnit === 'C'
+                        ? data?.current.feelslike_c
+                        : data?.current.feelslike_f}
+                      °
+                    </span>
+                    <p className="weatherContent__detailName">Fells like</p>
+                  </div>
+                </div>
+
+                <div className="weatherContent__detail">
+                  <img src="src/images/wind.svg" width="34" />
+                  <div className="weatherContent__detailText">
+                    <span className="weatherContent__detailValue">
+                      {data?.current.wind_kph}
+                      <span className="weatherConten__speedUnit">km/h</span>
+                    </span>
+                    <p className="weatherContent__detailName">Wind speed</p>
+                  </div>
+                </div>
               </div>
             </>
           )}
