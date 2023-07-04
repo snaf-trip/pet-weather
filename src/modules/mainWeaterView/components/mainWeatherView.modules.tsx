@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import WeatherDataStore from '../../../stores/weatherDataStore.stores';
 import './mainWeatherView.modules.scss';
 import { SearchLocation } from '../../../components/searchLocation/searchLocation.components';
-import { WeatherContent } from '../../../components/weatherContnent/weatherContent.components';
+import { WeatherContainer } from '../../../components/weatherContnent/weatherContainer.components';
 import { getWeatherRequest } from '../../../api/weatherRequest.api';
 import { observer } from 'mobx-react-lite';
 import { ipGetter } from '../../../api/ipUserRequest.api';
@@ -40,7 +40,7 @@ export const MainWeatherView = observer(() => {
     >
       <div className="mainWeatherView__content">
         <SearchLocation />
-        <WeatherContent data={data} />
+        <WeatherContainer data={data} />
         <FooterSettings />
       </div>
     </div>

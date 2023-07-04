@@ -1,59 +1,59 @@
-.weatherContent__container {
+.weatherContainer__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 100%;
 
-  .weatherContent__badResponse {
+  .weatherContainer__badResponse {
     font-size: 24px;
   }
 
-  .weatherContent__weatherIcon {
+  .weatherContainer__weatherIcon {
     filter: invert(0.9);
     // нужно будет svg конвертнуть в tsx
   }
 
-  .weatherContent__mainData {
+  .weatherContainer__mainData {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .weatherContent__temp {
+    .weatherContainer__temp {
       font-size: 96px;
       font-weight: bold;
       margin: 0;
       display: flex;
       height: 120px;
 
-      .weatherContent__degreeIcon {
+      .weatherContainer__degreeIcon {
         font-size: 66px;
       }
     }
 
-    .weatherContent__description {
+    .weatherContainer__description {
       font-size: 22px;
     }
   }
 
-  .weatherContent__details {
+  .weatherContainer__details {
     max-width: 320px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 
-    .weatherContent__detail {
+    .weatherContainer__detail {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      .weatherContent__detailText {
+      .weatherContainer__detailText {
         display: flex;
         flex-direction: column;
         line-height: 1;
         margin-left: 8px;
 
-        .weatherContent__detailValue {
+        .weatherContainer__detailValue {
           font-size: 25px;
           font-weight: bold;
 
@@ -63,7 +63,7 @@
         }
       }
 
-      .weatherContent__detailName {
+      .weatherContainer__detailName {
         font-size: 18px;
         margin: 0;
       }
