@@ -1,0 +1,60 @@
+.weatherContent__weatherIcon {
+  filter: invert(0.9);
+  // нужно будет svg конвертнуть в tsx
+}
+
+.weatherContent__mainData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .weatherContent__temp {
+    font-size: 96px;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    height: 120px;
+
+    .weatherContent__degreeIcon {
+      font-size: 66px;
+    }
+  }
+
+  .weatherContent__description {
+    font-size: 22px;
+  }
+}
+
+.weatherContent__details {
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .weatherContent__detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .weatherContent__detailText {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      margin-left: 8px;
+
+      .weatherContent__detailValue {
+        font-size: 25px;
+        font-weight: bold;
+
+        .weatherConten__speedUnit {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .weatherContent__detailName {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+}
