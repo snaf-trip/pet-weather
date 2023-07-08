@@ -11,6 +11,7 @@ interface Props {
 export const WeatherContainer = observer(({ data }: Props) => {
   return (
     <div className="weatherContainer__container">
+      //нужно пересмотреть это решение
       {data === undefined ? (
         <Loader />
       ) : (
