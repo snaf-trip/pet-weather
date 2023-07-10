@@ -1,12 +1,13 @@
 import './weaterContent.componetns.scss';
 import TempUnitStore from '../../../../stores/tempUnitStore.stores';
 import { ServerData } from '../../../../types/weatherResponseType.types';
+import { observer } from 'mobx-react-lite';
 
 interface Props {
   data: ServerData;
 }
 
-export const WeatherContent = ({ data }: Props) => {
+export const WeatherContent = observer(({ data }: Props) => {
   const { tempUnit } = TempUnitStore;
 
   return (
@@ -54,4 +55,4 @@ export const WeatherContent = ({ data }: Props) => {
       </div>
     </>
   );
-};
+});
